@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.monitorpr;
+package org.jenkinsci.plugins.monitorpro;
 
 import hudson.Extension;
 import hudson.PluginWrapper;
@@ -25,7 +25,7 @@ public class MonitorProViewAction implements Action, Describable<MonitorProViewA
 
 	public final static String SHORT_NAME = "monitor-pro";
 	
-	public final static String DISPLAY_NAME = "MonitorPro";
+	public final static String DISPLAY_NAME = "Monitor Pro";
 	
 	public Api getApi() {
 		return new Api(this);
@@ -69,18 +69,20 @@ public class MonitorProViewAction implements Action, Describable<MonitorProViewA
 		return getPluginWrapper().getVersion();
 	}
 	
+	public PluginWrapper getPluginWrapper() {
+		return Jenkins.getInstance().getPlugin(SHORT_NAME).getWrapper();
+	}
+	
 	@Exported
 	public String getRootUrl() {
 		return Jenkins.getInstance().getRootUrl();
 	}
 	
+	@Override
 	public MonitorProViewActionDescriptor getDescriptor() {
 		return MonitorProViewActionDescriptor.class.cast(Jenkins.getInstance().getDescriptorOrDie(getClass()));
 	}
 	
-	public PluginWrapper getPluginWrapper() {
-		return Jenkins.getInstance().getPlugin(SHORT_NAME).getWrapper();
-	}
 
 	@Extension
 	public static final class MonitorProViewActionDescriptor extends Descriptor<MonitorProViewAction> {

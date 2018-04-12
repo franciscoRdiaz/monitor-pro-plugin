@@ -1,34 +1,39 @@
 # Monitor Pro Plugin for Jenkins
-  Monitor Pro Plugin adds a button at the main Jenkins's screen, that allows view the jobs status for a selected view.
+  Monitor Pro Plugin, is a plugin to monitoring the status of the Jobs of a selected view, built as an Angular SPA. It provides to Jenkins interface of a button at the main screen to access the Monitor Pro application, wich will open in the same window.
     
-#Features
-  In this first version, you can:
+# Features
+  In this version you can:
   - Select a view.
-  - Config the grid maximun number of columns
-  - Set polling interval in minutes
+  - Config the grid maximun number of columns.
+  - Set polling interval in seconds.
+  - If exist Jobs cofigured as a group in Jenkins, that jobs will be shows as a single element in the grid.
+    - Group by group name, whichever is the parametrized name of the group. 
+  - Config the credentials and URL of the Jenkins Server that you want monitorize.
+  - Show which parameter caused the error.
+  - Group by parameter for easier viewing.
+  - Option to hide jobs finished successfully.
+  - Option to show as success the jobs run from a branch different to Master branch. 
+  ![Features](doc/img.png)
   
-  ![Features](doc/img2.png)
-  
-#Installation and use
-To know how install this plugin, click the next link https://wiki.jenkins-ci.org/display/JENKINS/Plugins#Plugins-Howtoinstallplugins.
+# Installation
+You can use this application as a plugin of Jenkins or integrated into any web application. Install application as a plugin there is no mistery, but if you want to use it into a web app, click on the link https://github.com/franciscoRdiaz/monitor-pro-spa to more information.
 
-Once the plugin's installation has finished, go to the Jenkins main page. An icon has been added at bottom of the left menu. To access the monitor plugin clicks over it.
- 
-  ![Monitor Pro Plugin for Jenkins](doc/img1.png)
-
-#Technology
-  Monitor Pro Plugin is built on Angular2 and at this moment only uses the jenkins plugin technology to deploy it as a jenkins plugin.
+# Quick Start
+  Once the plugin's installation has finished, go to the Jenkins main page. An icon has been added at bottom of the left menu. To access the monitor plugin you must click on it.
   
-#Added Value
-  This application can be used as a jenkins plugin, as a stand alone application and also inside any other web application.
-  
-#Based on
-To start building the plugin we have taken as a reference other two:
+  ![Features](doc/img1.png)
 
+By default, Monitor Pro tries to connect to Jenkins at http://localhost:8080/jenkins, if we have cofigurated Jenkins on another port or basepath, we need to set the correct value in the configuration menu. Rememmber that Monitor Pro runs on Jenkis,  so it is not to set any user or password. You only need to fill in these filds if you run Monitor Pro on another web application or if you want monitoring another jenkins server.
+
+# Technology
+  The interface and logic of Monitor Pro, are built entirely with the Angular Framework and TypeScript. Jelly, Stapler or Java, are only used to integrate the application as a plugin on jenkins. Monitor Pro obtains job status information by making requests to the Jenkins REST API..
+    
+# Based on
+  To Start building this plugin, we have taken two reference:
 - Jenkins EzWall Plugin
 - Jenkins CI Build Monitor Plugin
 
-#Licence
+# Licence
 The MIT License (MIT)
 Copyright (c) 2016 Francisco R Díaz
 

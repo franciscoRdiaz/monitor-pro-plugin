@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.monitorpr;
+package org.jenkinsci.plugins.monitorpro;
 
 import hudson.Extension;
 import hudson.model.Action;
